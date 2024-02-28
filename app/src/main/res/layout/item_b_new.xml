@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.example.practicesession.datamodel.Article" />
+            type="com.example.practicesession.newapp.datamodel.Article" />
 
     </data>
 
