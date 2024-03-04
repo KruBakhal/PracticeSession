@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.practicesession.newapp.datamodel.Article
 import com.example.practicesession.newapp.remote.RemoteInterface
-import com.example.practicesession.newapp.utils.Constant.Companion.TMDB_STARTING_PAGE_INDEX
+import com.example.practicesession.utils.Constant.Companion.TMDB_STARTING_PAGE_INDEX
 import java.io.IOException
 import javax.inject.Inject
 

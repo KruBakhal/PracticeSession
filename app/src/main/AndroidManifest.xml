@@ -18,6 +18,11 @@
         <activity
             android:name=".newapp.MainActivity"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".superballgame.SuperBallActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

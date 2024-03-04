@@ -2,6 +2,8 @@ package com.example.practicesession.newapp.datamodel
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -11,6 +13,7 @@ import java.io.Serializable
 data class Article(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
+
     @SerializedName("source") var source: Source? = Source(),
     @SerializedName("author") var author: String? = null,
     @SerializedName("title") var title: String? = null,
@@ -19,9 +22,9 @@ data class Article(
     @SerializedName("urlToImage") var urlToImage: String? = null,
     @SerializedName("publishedAt") var publishedAt: String? = null,
     @SerializedName("content") var content: String? = null
-) : Serializable{
+) : Serializable {
     fun getImage(): String {
-        if(urlToImage.isNullOrEmpty()){
+        if (urlToImage.isNullOrEmpty()) {
             return ""
         }
         return urlToImage!!

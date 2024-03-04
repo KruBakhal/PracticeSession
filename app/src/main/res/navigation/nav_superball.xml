@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_superball.xml"
+    app:startDestination="@id/superBallFragment">
+
+    <fragment
+        android:id="@+id/superBallFragment"
+        android:name="com.example.practicesession.superballgame.ui.SuperBallFragment"
+        android:label="fragment_super_ball"
+        tools:layout="@layout/fragment_super_ball">
+        <action
+            android:id="@+id/action_superBallFragment_to_gameListFragment"
+            app:destination="@id/gameListFragment" />
+        <action
+            android:id="@+id/action_superBallFragment_to_resultantFragment"
+            app:destination="@id/resultantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameListFragment"
+        android:name="com.example.practicesession.superballgame.ui.GameListFragment"
+        android:label="fragment_game_list"
+        tools:layout="@layout/fragment_game_list">
+        <action
+            android:id="@+id/action_gameListFragment_to_selectionBallFragment"
+            app:destination="@id/selectionBallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectionBallFragment"
+        android:name="com.example.practicesession.superballgame.ui.SelectionBallFragment"
+        android:label="fragment_selection_ball"
+        tools:layout="@layout/fragment_selection_ball" />
+    <fragment
+        android:id="@+id/resultantFragment"
+        android:name="com.example.practicesession.superballgame.ui.ResultantFragment"
+        android:label="fragment_resultant"
+        tools:layout="@layout/fragment_resultant" />
+
+
+</navigation>

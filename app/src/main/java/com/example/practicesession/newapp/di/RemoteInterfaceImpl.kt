@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import com.example.practicesession.newapp.datamodel.Article
 import com.example.practicesession.newapp.datamodel.Resource
 import com.example.practicesession.newapp.remote.RemoteInterface
-import com.example.practicesession.newapp.utils.Constant.Companion.NETWORK_PAGE_SIZE
+import com.example.practicesession.utils.Constant.Companion.NETWORK_PAGE_SIZE
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

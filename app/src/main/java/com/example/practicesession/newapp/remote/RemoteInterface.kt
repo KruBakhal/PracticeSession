@@ -2,7 +2,7 @@ package com.example.practicesession.newapp.remote
 
 import com.example.practicesession.newapp.datamodel.NewsResponse
 import com.example.practicesession.newapp.datamodel.Article
-import com.example.practicesession.newapp.utils.Constant.Companion.API_KEY
+import com.example.practicesession.utils.Constant.Companion.API_KEY
 import com.squareup.moshi.Json
 import retrofit2.http.GET
 import retrofit2.http.Query

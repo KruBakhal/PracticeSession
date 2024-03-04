@@ -1,4 +1,4 @@
-package com.example.practicesession.newapp.utils
+package com.example.practicesession.utils
 
 class Constant {
 

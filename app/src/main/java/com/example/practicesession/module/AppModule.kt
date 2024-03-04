@@ -1,11 +1,13 @@
-package com.example.practicesession.newapp.di.module
+package com.example.practicesession.module
 
 import android.content.Context
 import androidx.room.Room
 import com.example.practicesession.newapp.database.AppDatabase
 import com.example.practicesession.newapp.database.ArticleDBDao
 import com.example.practicesession.newapp.remote.RemoteInterface
-import com.example.practicesession.newapp.utils.Constant
+import com.example.practicesession.utils.Constant
+import com.example.practicesession.superballgame.database.SuperBallAppDatabase
+import com.example.practicesession.superballgame.database.SuperBallDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,8 +22,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-
-
     @Provides
     @Singleton
     fun provideRetrofitObject(): Retrofit {
@@ -31,9 +31,10 @@ class AppModule {
         return Retrofit.Builder().baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).client(client).build()
     }
+
     @Provides
     @Singleton
-    fun getRetrofitService(clientr:Retrofit): RemoteInterface {
+    fun getRetrofitService(clientr: Retrofit): RemoteInterface {
         return clientr.create(RemoteInterface::class.java)
     }
 
@@ -41,17 +42,34 @@ class AppModule {
     @Provides
     @Singleton
     fun getRoomDatabase(@ApplicationContext context: Context): AppDatabase {
-
         return Room.databaseBuilder(
             context.applicationContext,
             AppDatabase::class.java,
-            "article_db.db").allowMainThreadQueries().build()
+            "article_db.db"
+        ).allowMainThreadQueries().build()
     }
 
 
     @Provides
     @Singleton
-    fun provideChannelDao( appDatabase: AppDatabase): ArticleDBDao {
+    fun provideChannelDao(appDatabase: AppDatabase): ArticleDBDao {
+        return appDatabase.getArticleDBDao()
+    }
+
+
+    @Provides
+    @Singleton
+    fun getRoomDatabaseSuper(@ApplicationContext context: Context): SuperBallAppDatabase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            SuperBallAppDatabase::class.java,
+            "super_db.db").allowMainThreadQueries().fallbackToDestructiveMigration().build()
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideChannelDaoSuper( appDatabase: SuperBallAppDatabase): SuperBallDao {
         return appDatabase.getArticleDBDao()
     }
 }
